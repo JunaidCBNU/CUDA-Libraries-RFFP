@@ -18,8 +18,8 @@ import time
 
 # Zip the pickle file
 import bz2file as bz2
-libpool = ctypes.CDLL('./convolution_cuda.so')
-libconv = ctypes.CDLL('./SEFP.so')
+libpool = ctypes.CDLL('src/Junaid/convolution_cuda.so')
+libconv = ctypes.CDLL('src/Junaid/SEFP.so')
 warnings.simplefilter("ignore", UserWarning)
 
 def Save_File(path, data):
@@ -1780,6 +1780,7 @@ class Python_Conv(object):
         N, C, H, W = x.shape
         F, C, HH, WW = w.shape
         exp_bits = 8
+         
         pad = conv_param['pad']
         H_out = int(1 + (H + 2 * pad - HH) / stride)
         W_out = int(1 + (W + 2 * pad - WW) / stride)
@@ -1857,7 +1858,7 @@ class Python_ConvB(object):
     def forward(x, w, b, conv_param):
         pad = conv_param['pad']
         stride = conv_param['stride']
-        exp_bits = 8
+        exp_bits = 6
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         x = x.to(device)
         w = w.to(device)
@@ -1909,7 +1910,7 @@ class Python_ConvB(object):
         x_ptr = x.flatten().contiguous().data_ptr()
         dw_ptr_bias = dw_bias.flatten().contiguous().data_ptr()
         dx_ptr_bias = dx_bias.flatten().contiguous().data_ptr()
-        exp_bits = 8
+        exp_bits = 6
         
         libconv.conv2d_backward_db(
             N, F, H_dout, W_dout, 
