@@ -17,4 +17,9 @@ In this CUDA_PLAY, i have added functionalities such as:
 
 You can take bfloat reference pooling code from conv16.cu file and add in CUDA_PLAY.cu and perform pooling in custom format.
 
+## Also for back propogation functions you can take modules from SEFP.cu
+1. Back Convolution
+2. Back Pooling
+3. Back DW/DX Calculations etc
+
 ## In similar fashion you can convert any module.
