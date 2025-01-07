@@ -1,4 +1,6 @@
-![image](https://github.com/user-attachments/assets/2dc2f7d4-7d98-4b8e-bd3e-3d36e3cf97e9)# CUDA PLAY SPACE
+![image](https://github.com/user-attachments/assets/2dc2f7d4-7d98-4b8e-bd3e-3d36e3cf97e9)
+# CUDA PLAY SPACE
+
 Lets Practice Playing with Mantissa and Exponent Width along with CUSTOM EXPONENT BIAS.
 
 Please download CUDA_PLAY on your PC
